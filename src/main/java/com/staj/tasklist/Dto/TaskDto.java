@@ -1,5 +1,6 @@
 package com.staj.tasklist.Dto;
 
+import com.staj.tasklist.Entity.Enums.TaskPriority;
 import com.staj.tasklist.Entity.Enums.TaskState;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.EnumType;
@@ -8,6 +9,7 @@ import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @AllArgsConstructor
@@ -20,6 +22,10 @@ public class TaskDto {
     @Enumerated(EnumType.STRING)
     private TaskState state;
 
+    @NonNull
+    @Enumerated(EnumType.STRING)
+    private TaskPriority priority;
+
     @Nullable
     private String deadline;
 
@@ -28,6 +34,9 @@ public class TaskDto {
     public void prePersist() {
         if (state == null) {
             state = TaskState.PENDING;
+        }
+        if (priority == null) {
+            priority = TaskPriority.CASUAL;
         }
     }
 }

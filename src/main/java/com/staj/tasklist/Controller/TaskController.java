@@ -1,6 +1,8 @@
 package com.staj.tasklist.Controller;
 
 import com.staj.tasklist.Dto.TaskDto;
+import com.staj.tasklist.Entity.Enums.TaskPriority;
+import com.staj.tasklist.Entity.Enums.TaskState;
 import com.staj.tasklist.Service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,11 +21,32 @@ public class TaskController {
         this.taskService = taskService;
     }
 
+    //GET REQUESTS AND FILTERS >>>>>>>>>>>>>>>>>>>>>>>>>
     @GetMapping
     public List<TaskDto> GetAllTasks() {
         return taskService.FindAllTasks();
     }
 
+    @GetMapping
+    public List<TaskDto> GetTasksOrderedByState() {
+        return taskService.FindAllOrderedByState();
+    }
+
+    @GetMapping
+    public List<TaskDto> GetTasksByState(TaskState state) {
+        return taskService.FindByState(state);
+    }
+
+    @GetMapping
+    public List<TaskDto> GetTasksOrderedByPriority() {
+        return taskService.FindAllOrderedByPriority();
+    }
+
+    @GetMapping
+    public List<TaskDto> GetTasksByPriority(TaskPriority priority) {
+        return taskService.FindByPriority(priority);
+    }
+    //GET REQUESTS AND FILTERS END>>>>>>>>>>>>>>>>>>>>>>>>>
     @PostMapping("/create")
     public ResponseEntity<TaskDto> CreatTask(@RequestBody TaskDto taskDto) {
         taskService.CreateTask(taskDto);

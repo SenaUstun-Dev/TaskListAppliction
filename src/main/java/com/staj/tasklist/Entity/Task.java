@@ -1,6 +1,9 @@
 package com.staj.tasklist.Entity;
 
 import com.staj.tasklist.Entity.Enums.TaskState;
+import com.staj.tasklist.Entity.Enums.TaskPriority;
+
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,8 +26,13 @@ public class Task {
     private String content;
     private String deadline;
 
+    @Nullable
     @Enumerated(EnumType.STRING)
     private TaskState state;
+
+    @NonNull
+    @Enumerated(EnumType.STRING)
+    private TaskPriority priority;
 
     // Varsayılan değeri ayarlamak için
     @PrePersist
