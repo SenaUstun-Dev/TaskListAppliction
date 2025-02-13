@@ -69,6 +69,7 @@ public class TaskService {
         return getTaskDto(taskDto, task);
     }
 
+    //gets TaskDto from frontend and puts it in Task to be used in datbase
     private TaskDto getTaskDto(TaskDto taskDto, Task task) {
         task.setTitle(taskDto.getTitle());
         task.setContent(taskDto.getContent());
