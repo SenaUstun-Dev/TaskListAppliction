@@ -9,7 +9,6 @@ import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Data
 @AllArgsConstructor
@@ -22,20 +21,24 @@ public class TaskDto {
     @Enumerated(EnumType.STRING)
     private TaskState state;
 
+    @Nullable
     @Enumerated(EnumType.STRING)
     private TaskPriority priority;
 
     @Nullable
     private String deadline;
 
-    // Varsayılan değeri ayarlamak için
-    @PrePersist
-    public void prePersist() {
-        if (state == null) {
-            state = TaskState.PENDING;
-        }
-        if (priority == null) {
-            priority = TaskPriority.CASUAL;
-        }
-    }
+//    // Varsayılan değeri ayarlamak için
+//    @PrePersist
+//    public void prePersist() {
+//        if (state == null) {
+//            state = TaskState.PENDING;
+//        }
+//        if (priority == null) {
+//            priority = TaskPriority.CASUAL;
+//        }
+//        if (deadline == null) {
+//            deadline = "no pressure";
+//        }
+//    }
 }

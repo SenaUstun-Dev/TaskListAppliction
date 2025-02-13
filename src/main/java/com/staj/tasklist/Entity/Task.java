@@ -30,6 +30,7 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private TaskState state;
 
+    @Nullable
     @Enumerated(EnumType.STRING)
     private TaskPriority priority;
 
@@ -42,7 +43,9 @@ public class Task {
         if (priority == null) {
             priority = TaskPriority.CASUAL;
         }
+        if (deadline == null) {
+            deadline = "no pressure";
+        }
     }
-    //private Priority priority;  I might add this if everything goes well
 
 }

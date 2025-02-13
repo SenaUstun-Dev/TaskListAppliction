@@ -55,6 +55,7 @@ public class TaskService {
         task.setTitle(taskDto.getTitle());
         task.setContent(taskDto.getContent());
         task.setState(taskDto.getState());
+        task.setPriority(taskDto.getPriority());
         task.setDeadline(taskDto.getDeadline());
         taskRepository.save(task);
         return taskDto;
@@ -74,6 +75,7 @@ public class TaskService {
         task.setTitle(taskDto.getTitle());
         task.setContent(taskDto.getContent());
         task.setState(taskDto.getState());
+        task.setPriority(taskDto.getPriority());
         task.setDeadline(taskDto.getDeadline());
         taskRepository.save(task);
         return taskDto;
