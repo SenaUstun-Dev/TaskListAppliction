@@ -30,7 +30,6 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private TaskState state;
 
-    @NonNull
     @Enumerated(EnumType.STRING)
     private TaskPriority priority;
 
@@ -39,6 +38,9 @@ public class Task {
     public void prePersist() {
         if (state == null) {
             state = TaskState.PENDING;
+        }
+        if (priority == null) {
+            priority = TaskPriority.CASUAL;
         }
     }
     //private Priority priority;  I might add this if everything goes well

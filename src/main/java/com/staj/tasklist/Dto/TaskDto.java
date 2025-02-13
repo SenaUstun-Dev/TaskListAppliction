@@ -22,7 +22,6 @@ public class TaskDto {
     @Enumerated(EnumType.STRING)
     private TaskState state;
 
-    @NonNull
     @Enumerated(EnumType.STRING)
     private TaskPriority priority;
 
