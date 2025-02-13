@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Görevi Güncelle</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Görevi Güncelle</h1>
+<form th:action="@{/tasks/update/{id}(id=${task.id})}" method="post">
+  <label>Başlık: <input type="text" name="title" th:value="${task.title}"></label><br>
+  <label>İçerik: <textarea name="content" th:text="${task.content}"></textarea></label><br>
+  <button type="submit">Güncelle</button>
+</form>
+<a href="/tasks"><button>Geri Dön</button></a>
+</body>
+</html>

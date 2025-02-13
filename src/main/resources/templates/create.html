@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Yeni Görev Ekle</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Yeni Görev Ekle</h1>
+<form action="/tasks/create" method="post">
+  <label>Başlık: <input type="text" name="title"></label><br>
+  <label>İçerik: <textarea name="content"></textarea></label><br>
+  <button type="submit">Kaydet</button>
+</form>
+<a href="/tasks"><button>Geri Dön</button></a>
+</body>
+</html>
