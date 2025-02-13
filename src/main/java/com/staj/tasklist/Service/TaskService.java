@@ -52,13 +52,7 @@ public class TaskService {
 
     public TaskDto CreateTask(TaskDto taskDto) {
         Task task = new Task();
-        task.setTitle(taskDto.getTitle());
-        task.setContent(taskDto.getContent());
-        task.setState(taskDto.getState());
-        task.setPriority(taskDto.getPriority());
-        task.setDeadline(taskDto.getDeadline());
-        taskRepository.save(task);
-        return taskDto;
+        return getTaskDto(taskDto, task);
     }
 
     public void DeleteTask(Long id) {
@@ -72,6 +66,10 @@ public class TaskService {
 
     public TaskDto UpdateTask(Long id , TaskDto taskDto) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Task not found with id: " + id));
+        return getTaskDto(taskDto, task);
+    }
+
+    private TaskDto getTaskDto(TaskDto taskDto, Task task) {
         task.setTitle(taskDto.getTitle());
         task.setContent(taskDto.getContent());
         task.setState(taskDto.getState());
