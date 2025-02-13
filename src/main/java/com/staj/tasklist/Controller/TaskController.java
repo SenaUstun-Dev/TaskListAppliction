@@ -22,28 +22,28 @@ public class TaskController {
     }
 
     //GET REQUESTS AND FILTERS >>>>>>>>>>>>>>>>>>>>>>>>>
-    @GetMapping
+    @GetMapping("/all")
     public List<TaskDto> GetAllTasks() {
         return taskService.FindAllTasks();
     }
 
-    @GetMapping
+    @GetMapping("/order-by-state")
     public List<TaskDto> GetTasksOrderedByState() {
         return taskService.FindAllOrderedByState();
     }
 
-    @GetMapping
-    public List<TaskDto> GetTasksByState(TaskState state) {
+    @GetMapping("/by-state/{state}")
+    public List<TaskDto> GetTasksByState(@PathVariable TaskState state) {
         return taskService.FindByState(state);
     }
 
-    @GetMapping
+    @GetMapping("/order-by-priority")
     public List<TaskDto> GetTasksOrderedByPriority() {
         return taskService.FindAllOrderedByPriority();
     }
 
-    @GetMapping
-    public List<TaskDto> GetTasksByPriority(TaskPriority priority) {
+    @GetMapping("/by-priority/{priority}")
+    public List<TaskDto> GetTasksByPriority(@PathVariable TaskPriority priority) {
         return taskService.FindByPriority(priority);
     }
     //GET REQUESTS AND FILTERS END>>>>>>>>>>>>>>>>>>>>>>>>>
