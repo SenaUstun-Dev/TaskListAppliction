@@ -1,5 +1,27 @@
-POST localhost:5432/tasks/create
+###
+GET localhost:8080/tasks/all
+###
+GET localhost:8080/tasks/order-by-state
+###
+GET localhost:8080/tasks/by-state/{state}
+###
+GET localhost:8080/tasks/order-by-priority
+###
+GET localhost:8080/tasks/by-priority/{priority}
+###
+POST localhost:8080/tasks/create
+Content-Type: application/json
 
 {
-
+    "title": "title-name",
+    "content": "task-content",
+    "state": "IN_PROGRESS",
+    "priority": "IMPORTANT",
+    "deadline": null
 }
+
+###
+PUT localhost:8080/tasks/update/{id}
+###
+DELETE  localhost:8080/tasks/delete/{id}
+###
